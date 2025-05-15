@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-
+import img from '../assets/img.jpg'
 const Home = () => {
   const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ const Home = () => {
         </div>
       </div>
       <div className="img-box">
-        <img src="/img.jpg" alt="Profile" />
+        <img src={img} alt="Profile" />
       </div>
     </section>
   )

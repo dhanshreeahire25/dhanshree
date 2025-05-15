@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-
+import dhanresume from '../assets/Dhanshree-resume (1).pdf'
 const Header = () => {
   return (
     <header className="header">
@@ -11,7 +11,7 @@ const Header = () => {
         <a href="#education">Education</a>
       </nav>
       <a href="#contact" className="contact">Contact Me</a>
-      <a href="/Dhanshree-resume.pdf" download className="download-resume">Download Resume</a>
+      <a href={dhanresume} download className="download-resume">Download Resume</a>
     </header>
   )
 }

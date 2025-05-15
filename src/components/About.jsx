@@ -1,8 +1,10 @@
+import img from '../assets/img.jpg'
+
 const About = () => {
     return (
       <section className="about">
         <div className="about-img">
-          <img src="/img.jpg" alt="About" />
+          <img src={img} alt="About" />
         </div>
         <div className="about-content">
           <h2 className="heading">About <span>Me</span></h2>
