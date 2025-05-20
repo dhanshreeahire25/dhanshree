@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import dhanresume from '../assets/Dhanshree-resume (1).pdf'
+import dhanresume from '../assets/resume.pdf'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -25,6 +25,14 @@ const Header = () => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto'
   }, [isMobileMenuOpen])
 
+  const handleNavigation = (sectionId) => {
+    setIsMobileMenuOpen(false)
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
@@ -40,10 +48,10 @@ const Header = () => {
           </div>
           {isMobileMenuOpen && (
             <nav className="mobile-navbar">
-              <Link to="/#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</Link>
-              <Link to="/#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</Link>
-              <Link to="/#education" onClick={() => setIsMobileMenuOpen(false)}>Education</Link>
-              <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Me</Link>
+              <a href="#experience" onClick={() => handleNavigation('experience')}>Experience</a>
+              <a href="#projects" onClick={() => handleNavigation('projects')}>Projects</a>
+              <a href="#education" onClick={() => handleNavigation('education')}>Education</a>
+              <a href="#contact" onClick={() => handleNavigation('contact')}>Contact Me</a>
               <a href={dhanresume} download onClick={() => setIsMobileMenuOpen(false)}>Download Resume</a>
             </nav>
           )}
@@ -51,12 +59,12 @@ const Header = () => {
       ) : (
         <>
           <nav className="navbar">
-            <Link to="/#home">Portfolio</Link>
-            <Link to="/#experience">Experience</Link>
-            <Link to="/#projects">Projects</Link>
-            <Link to="/#education">Education</Link>
+            <a href="#home" onClick={() => handleNavigation('home')}>Portfolio</a>
+            <a href="#experience" onClick={() => handleNavigation('experience')}>Experience</a>
+            <a href="#projects" onClick={() => handleNavigation('projects')}>Projects</a>
+            <a href="#education" onClick={() => handleNavigation('education')}>Education</a>
           </nav>
-          <Link to="/#contact" className="contact">Contact Me</Link>
+          <a href="#contact" className="contact" onClick={() => handleNavigation('contact')}>Contact Me</a>
           <a href={dhanresume} download className="download-resume">Download Resume</a>
         </>
       )}
