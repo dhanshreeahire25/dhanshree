@@ -1,8 +1,5 @@
-import { useNavigate } from 'react-router-dom'
 import img from '../assets/img.jpg'
 const Home = () => {
-  const navigate = useNavigate()
-
   const handleHireMe = () => {
     alert('You clicked on Hire Me!')
   }
